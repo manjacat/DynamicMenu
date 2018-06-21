@@ -12,6 +12,7 @@ namespace DynamicMenu.Controllers
         // GET: Job
         public ActionResult Index()
         {
+            //EDIT job controller in Master
             ViewBag.Dropdown = JobDistribution.GetList();
             return View();
         }
