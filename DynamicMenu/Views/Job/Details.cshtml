@@ -1,0 +1,84 @@
+﻿@model DynamicMenu.Models.JobDistribution
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobDistribution</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NoAduan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoAduan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeStamp.CreatedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeStamp.CreatedTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeStamp.AcceptedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeStamp.AcceptedTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeStamp.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeStamp.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeStamp.ClosedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeStamp.ClosedTime)
+        </dd>
+
+        @if (Model.TimeStamp.ArrivalTime != null && Model.TimeStamp.CreatedTime != null)
+        {
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponseTime)
+        </dt>
+        <dd>
+            @string.Format("{0} Min {1} Sec ", Model.ResponseTime.Minutes, Model.ResponseTime.Seconds)
+        </dd>
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

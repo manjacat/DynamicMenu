@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @Html.Partial("_MenuTop")
+    <ul class="nav navbar-nav side-nav" id="sidebar"></ul>
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div>
+                Footer
+            </div>
+            <ul id="information"></ul>
+        </footer>
+        <ul id="sideTemplate" style="display:none;">
+            <li>
+                <a href="HYPERLINK" data-toggle="collapse" data-target="#ELEMENTID">
+                    <span class="menuText">NAMELINK</span>
+                    <span>(NUMBER)</span>
+                </a>
+            </li>
+        </ul>
+        <ul id="sideTemplateSubMenu" style="display:none;">
+            <li>
+                <a href="HYPERLINK" data-toggle="collapse" data-target="#ELEMENTID">
+                    <i class="fa fa-fw fa-blink fa-edit"></i>
+                    <span class="menuText">NAMELINK</span>
+                    <span>(NUMBER)</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/chartJs")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GetMyJSON();
+            //RunTimer();
+        });
+
+        function RunTimer() {
+            setInterval(function () {
+                GetMyJSON();
+            }, 5000);
+        }
+
+        function GetMyJSON() {
+            var myList = $('#sidebar');
+            var actionUrl = '/SideBar/Index';
+            $.getJSON(actionUrl, function (response) {
+                if (response != null) {
+                    //TODO
+                    var template = $('#sideTemplate');
+                    var templateSub = $('#sideTemplateSubMenu');
+                    var templateString = template.html();
+                    var templateStringSub = templateSub.html();
+                    var sideHTML = '';
+                    myList.empty();
+                    $.each(response, function (i, value) {
+                        var side1 = templateString;
+                        side1 = side1.replace('NAMELINK', value.Name);
+                        if (value.SubMenu.length > 0) {
+                            side1 = side1.replace('HYPERLINK', 'javascript:;');
+                            side1 = side1.replace('<span>(NUMBER)</span>', '<i class="fa fa-fw fa-caret-down"></i>')
+                        }
+                        else {
+                            side1 = side1.replace('HYPERLINK', value.Hyperlink);
+                        }
+                        if (value.TotalRecord > 0) {
+                            side1 = side1.replace('NUMBER', value.TotalRecord);
+                        }
+                        else {
+                            side1 = side1.replace('<span>(NUMBER)</span>', '');
+                        }
+                        side1 = side1.replace('</li>', '');
+                        side1 = side1.replace('ELEMENTID', 'element' + i);
+                        sideHTML += side1;
+                        sideHTML += '<ul id="' + 'element' + i + '" class="collapse in">';
+                        if (value.SubMenu.length > 0) {
+                            $.each(value.SubMenu, function (i, valueSub) {
+                                var side2 = templateStringSub;
+                                side2 = side2.replace('HYPERLINK', valueSub.Hyperlink);
+                                side2 = side2.replace('NAMELINK', valueSub.Name);
+                                if (valueSub.TotalRecord > 0) {
+                                    side2 = side2.replace('NUMBER', valueSub.TotalRecord);
+                                }
+                                else {
+                                    side2 = side2.replace('<span>(NUMBER)</span>', '');
+                                }
+                                sideHTML += side2;
+                            });
+                        }
+                        sideHTML += '</ul>';
+                        sideHTML += '</li>';
+                    });
+                    myList.append(sideHTML);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,72 @@
+﻿/* Banner */
+.top-banner {
+    background: url(/Images/webBanner01.jpg) repeat-x;
+    background-position-y: center;
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        font-size: 11px;
+        position: fixed;
+        top: 100px;
+        left: 220px;
+        width: 230px;
+        margin-left: -220px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: black;
+        bottom: 0;
+        overflow-x: hidden;
+    }
+
+        .side-nav > li > a {
+            width: 260px;
+        }
+
+        .side-nav li a:hover,
+        .side-nav li a:focus {
+            outline: none;
+            background-color: green !important;
+        }
+}
+
+.side-nav > li > a,
+.side-nav > li > ul > li > a,
+.side-nav > li > ul > li > ul > li > a {
+    color: white;
+    line-height: 6px;
+}
+
+/*.side-nav>li>a > span,
+.side-nav>li>ul>li>a > span,
+.side-nav>li>ul>li>ul>li>a > span{
+    padding-right:15px;
+}*/
+
+.menuText {
+    padding-right: 5px;
+}
+
+span[class^='label-'] {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.side-nav > li > ul {
+    padding: 0;
+}
+
+    .side-nav > li > ul > li > a,
+    .side-nav > li > ul > li > ul > li > a {
+        display: block;
+        padding: 10px 15px 10px 38px;
+        text-decoration: none;
+    }
+
+        .side-nav > li > ul > li > a:hover,
+        .side-nav > li > ul > li > ul > li > a:hover {
+            color: #fff;
+        }

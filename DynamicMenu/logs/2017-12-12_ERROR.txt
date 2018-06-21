@@ -1,0 +1,10 @@
+2017-12-12 14:18:18.6708 ERROR System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.Data.SqlClient.SqlParameterCollection.AddRange(Array values)
+   at System.Data.SqlClient.SqlParameterCollection.AddRange(SqlParameter[] values)
+   at DynamicMenu.DataContext.SQLHelper.QueryTable(String StoredProcName, SqlParameter[] parameters, CommandType sqlCommandType) in C:\Users\User\documents\visual studio 2015\Projects\DynamicMenu\DynamicMenu\DataContext\SQLHelper.cs:line 81; SQL: Stored Proc: select Id, NoAduan, CreatedTime, Nama, AcceptedTime, ClosedTime, [Location] from JobDistribution .
+2017-12-12 14:19:36.5612 ERROR System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.Data.SqlClient.SqlParameterCollection.AddRange(Array values)
+   at System.Data.SqlClient.SqlParameterCollection.AddRange(SqlParameter[] values)
+   at DynamicMenu.DataContext.SQLHelper.QueryTable(String StoredProcName, SqlParameter[] parameters, CommandType sqlCommandType) in C:\Users\User\documents\visual studio 2015\Projects\DynamicMenu\DynamicMenu\DataContext\SQLHelper.cs:line 81; SQL: Stored Proc: select Id, NoAduan, CreatedTime, Nama, AcceptedTime, ClosedTime, [Location] from JobDistribution .
