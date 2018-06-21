@@ -68,4 +68,9 @@ namespace DynamicMenu.Models
         [DisplayName("Closed Time")]
         public DateTime? ClosedTime { get; set; }
     }
+
+    public class Test
+    {
+        //TODO: Commit Test
+    }
 }
