@@ -31,6 +31,7 @@ namespace DynamicMenu.Models
             TotalRecord = 0;
             IsVisible = true;
             SubMenu = new List<Menu>();
+            //Hello World
         }
 
         public static List<Menu> GetList(string user)
