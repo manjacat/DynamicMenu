@@ -2,3 +2,5 @@
 .vs/config/applicationhost.config
 DynamicMenu/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.cache
+
+DynamicMenu/obj/Debug/

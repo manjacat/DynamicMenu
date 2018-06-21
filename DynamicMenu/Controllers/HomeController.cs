@@ -11,7 +11,7 @@ namespace DynamicMenu.Controllers
     {
         public ActionResult Index()
         {
-            List<Menu> menus = new List<Menu>();// ("Azrul Hisham");
+            List<Menu> menus = new List<Menu>(); Menu.GetList("Azrul"); //test confict
             return View();
         }
 
