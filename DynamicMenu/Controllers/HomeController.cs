@@ -11,13 +11,14 @@ namespace DynamicMenu.Controllers
     {
         public ActionResult Index()
         {
-            List<Menu> menus = new List<Menu>(); Menu.GetList("Azrul"); //test confict
+            List<Menu> menus = new List<Menu>();
+            menus = Menu.GetList("Azrul"); //test confict
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This is my application description page.";
 
             return View();
         }
