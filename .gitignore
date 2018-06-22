@@ -6,3 +6,11 @@ DynamicMenu/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 DynamicMenu/obj/Debug/
 
 DynamicMenu/DynamicMenu\.csproj\.user
+
+*.config
+
+DynamicMenu/bin/
+
+*.mdf
+
+*.ldf
